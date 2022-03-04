@@ -1,0 +1,87 @@
+Estructuras de Datos
+Primer Parcial
+
+1. Análisis de código
+
+1.1.1 ¿Qué hace func? (descríbala en 12 palabras o menos)
+- Copia una y media veces la lista de entrada duplicada
+
+1.1.2 ¿Cuál es el orden de complejidad de func? Justifique brevemente su respuesta?
+- O(n), el ciclo externo se ejecuta siempre 2 veces, 
+
+los ciclos internos si dependen de la longitud de la lista de entrada
+
+--------------------------------------------------------------------------------------------------------
+
+2.1 ¿Cuál de las siguientes estructuras podría representar una torre de hanoi?.
+
+1. Pilas.
+
+2.2 Una lista (std::list<T>) es equivalente a una cola (std::queue<T>) porque:
+
+
+2.3 El iterador que permite recorrer un contenedor de tipo pila de la STL (std::stack<T>)
+es de tipo:
+4. Una pila no tiene iterador.
+
+2.4 El orden de complejidad del algortimo de ordenamiento burbuja sobre una lista
+de enteros es:
+4. O (n²)
+2.5 Suponga que dispone de 3 algortimos (alg1, alg2, alg3) para resolver el mismo
+problema. Se han calculado los tiempo de ejecución de cada uno así : Talg1 (n)
+= 2n³ + 7n + 3, Talg2 (n) = 2n + 4n + 3 y Talg3 (n) = 2n³ + 2 log n + 6.
+¿Cuál algoritmo tiene menor complejidad?
+1. algo3 con O(n^3)
+
+--------------------------------------------------------------------------------------------------------
+3. Implementación de TADs
+
+3.1 Diseño
+TAD JaveSalud:
+Datos Minimos:
+list_sedes, sedes de javesalud
+sede, ubicacion donde se va a tomar el servicio medico
+list_espe, lista de especialidades que tiene la sede
+espec, especialidad
+Ventas_cant, cantidad de medicamentos vendidos
+ventas_cod_med, codigo identificador de las medicinas a vender
+ventas_precio_med, precio de las medicinas a vender
+ventas_name_med, nombre del medicamento a vender
+
+Operaciones: 
+reg_ventas(), retorna el registro de las ventas hechas en el dia
+inv_med(), realiza el inventario de los medicamentos en la lista
+
+
+TAD citas:
+Datos Minimos:
+fecha_cita, fecha en la cual se hara la cita
+dia_cita, dia en el que se hara la cita
+id_cita, identificador de la cita
+id_paciente, identificador del paciente
+cita_especialidad, especialidad la cual el paciente requiere servicios
+orden_llegada, orden de llegada en el cual se atenderan los pacientes
+
+Operaciones:
+asig_cita(espe,fecha,dia,id), asignacion de citas dentro de la sede con respecto a la especialidad
+asig_cita_prio(), asigna cita prioritaria dependiendo de la enfermedad de urgnecia menor de este y 
+orden de llegada
+Consulta prioritaria(), agregar un nuevo paciente en una sede para ser antedido de manera prioritaria
+cancelar_cita(), dada la informacion del paciente, id, fecha, etc. se cancela la cita programada para que 
+se pueda asignar a otra persona.
+
+
+3.1.2 Implementación (46%)
+Inventario medicamentos.
+
+Cancelar una cita.
+void Cancelar_cita(int paciente_id, int cita_id, Date fecha_cita){
+    if (!fecha_cita!= NULL && !cita_id != NULL)
+    {
+        if (paciente_id == data_base.paciente_id)
+        {
+            fecha_cita = NULL;
+            cita_id = NULL;
+        }
+    }
+}
