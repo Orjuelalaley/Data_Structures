@@ -8,6 +8,7 @@ int main()
     char comando[500];
     int size;
     char *cad;
+    pgm imagen;
 
     vector<string> com;
 
@@ -25,21 +26,24 @@ int main()
 
         if (com[0] == "cargar_imagen")
         {
-            string Nombreimagen;
-            cout << "escribe el nombre de la imagen"<<endl;
-            cin >> Nombreimagen;
-  
+            if (com.size() != 1)
+            {
+                string Nombreimagen = com[1];
+                imagen = Cargar_imagen(Nombreimagen);
+            }else{
+                cout << "comando mal escrito\n";
+            }
             com.clear();
         }
         else if (com[0] == "cargar_volumen")
         {
             size = stoi(com[2]);
-            Cargar_Volumen(com[1], size);         
-			com.clear();
+            Cargar_Volumen(com[1], size);
+            com.clear();
         }
         else if (com[0] == "info_imagen")
         {
-            Info_imagen();
+            Info_imagen(imagen);
             com.clear();
         }
         else if (com[0] == "info_volumen")
